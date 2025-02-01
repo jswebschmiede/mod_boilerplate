@@ -64,13 +64,12 @@ module.exports = (env, argv) => {
             to: 'services',
         },
         {
-            from: 'src/tmpl',
-            to: 'tmpl',
+            from: 'src/src',
+            to: 'src',
         },
         {
-            from: 'src/subforms',
-            to: 'subforms',
-            noErrorOnMissing: true,
+            from: 'src/tmpl',
+            to: 'tmpl',
         },
         {
             from: 'src/language',
@@ -108,13 +107,12 @@ module.exports = (env, argv) => {
                 to: path.join(joomlaPath, 'modules/mod_boilerplate/services'),
             },
             {
-                from: 'dist/tmpl',
-                to: path.join(joomlaPath, 'modules/mod_boilerplate/tmpl'),
+                from: 'dist/src',
+                to: path.join(joomlaPath, 'modules/mod_boilerplate/src'),
             },
             {
-                from: 'dist/subforms',
-                to: path.join(joomlaPath, 'modules/mod_boilerplate/subforms'),
-                noErrorOnMissing: true,
+                from: 'dist/tmpl',
+                to: path.join(joomlaPath, 'modules/mod_boilerplate/tmpl'),
             },
             {
                 from: 'dist/media',
@@ -176,7 +174,7 @@ module.exports = (env, argv) => {
             ...(isProduction
                 ? [
                       new ZipPlugin({
-                          path: path.resolve(__dirname, 'dist'),
+                          path: path.resolve(__dirname, 'dist/zip'),
                           filename: 'mod_boilerplate.zip',
                           extension: 'zip',
                           fileOptions: {
