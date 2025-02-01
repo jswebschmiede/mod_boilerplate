@@ -1,0 +1,25 @@
+{
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "mod_boilerplate",
+    "version": "1.0.0",
+    "description": "Assets for the boilerplate module",
+    "license": "GPL-2.0-or-later",
+    "assets": [
+        {
+            "name": "module.boilerplate.site",
+            "type": "script",
+            "uri": "mod_boilerplate/site.bundle.js",
+            "dependencies": ["core"],
+            "attributes": {
+                "defer": true
+            },
+            "version": "1.0.0"
+        },
+        {
+            "name": "module.boilerplate.site",
+            "type": "style",
+            "uri": "mod_boilerplate/site.min.css",
+            "version": "1.0.0"
+        }
+    ]
+}
