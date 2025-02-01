@@ -10,9 +10,10 @@
 
 namespace Joomla\Module\Boilerplate\Site\Dispatcher;
 
-use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
-use Joomla\CMS\Helper\HelperFactoryAwareInterface;
+use Joomla\Registry\Registry;
 use Joomla\CMS\Helper\HelperFactoryAwareTrait;
+use Joomla\CMS\Helper\HelperFactoryAwareInterface;
+use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
 
 class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareInterface
 {
@@ -20,10 +21,14 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 
 	protected function getLayoutData(): array
 	{
+		$params = new Registry($this->module->params);
 		$data = parent::getLayoutData();
 
-		$data['msg'] = $this->getHelperFactory()->getHelper('BoilerplateHelper')->getMsg($data['params'], $this->getApplication());
-		$data['items'] = $this->getHelperFactory()->getHelper('BoilerplateHelper')->getExampleItems($data['params'], $this->getApplication());
+		/** @var \Joomla\Module\Boilerplate\Site\Helper\BoilerplateHelper $helper */
+		$helper = $this->getHelperFactory()->getHelper('BoilerplateHelper');
+
+		$data['msg'] = $helper->getMsg($data['params'], $this->getApplication());
+		$data['items'] = $helper->getExampleItems($data['params'], $this->getApplication());
 
 		return $data;
 	}
