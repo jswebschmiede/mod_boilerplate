@@ -12,17 +12,17 @@
 namespace Joomla\Module\Boilerplate\Site\Helper;
 
 use Joomla\Registry\Registry;
-use Joomla\CMS\Application\SiteApplication;
+use Joomla\CMS\Application\CMSApplicationInterface;
 
 class BoilerplateHelper
 {
-	public function getMsg(Registry $params, SiteApplication $app): string
+	public function getMsg(Registry $params, CMSApplicationInterface $app): string
 	{
 		$message = $params->get('msg', 'Hello World!');
 		return $message;
 	}
 
-	public function getExampleItems(Registry $params, SiteApplication $app): array
+	public function getExampleItems(Registry $params, CMSApplicationInterface $app): array
 	{
 		$itemboxFormMap = (array) $params->get('itembox-form');
 		return $itemboxFormMap;
