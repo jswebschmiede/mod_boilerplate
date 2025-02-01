@@ -1,8 +1,8 @@
-# Simpleboilerplate - Joomla Component
+# Boilerplate Module - Joomla Module
 
 ## Description
 
-Simpleboilerplate is a base component for Joomla, serving as a starting point for developing custom components. It provides a pre-configured structure and integrates modern development tools for efficient Joomla extension development.
+Boilerplate Module is a base module for Joomla, serving as a starting point for developing custom modules. It provides a pre-configured structure and integrates modern development tools for efficient Joomla extension development.
 
 ## Features
 
@@ -12,8 +12,6 @@ Simpleboilerplate is a base component for Joomla, serving as a starting point fo
 -   Progress display during the build process
 -   Automatic creation of ZIP archives for easy installation
 -   Automatic copying of files to your Joomla installation
--   Composer support (if needed uncomment the autoload.php in the services/provider.php file and the vendor folder in simpleboilerplate.xml)
--   Category support (if not needed, look at https://github.com/jswebschmiede/com_boilerplate)
 
 ## Prerequisites
 
@@ -27,13 +25,13 @@ Simpleboilerplate is a base component for Joomla, serving as a starting point fo
 1. Clone the repository:
 
     ```
-    git clone https://github.com/jswebschmiede/com_simpleboilerplate.git
+    git clone https://github.com/jswebschmiede/mod_boilerplate.git
     ```
 
 2. Navigate to the project directory:
 
     ```
-    cd com_simpleboilerplate
+    cd mod_boilerplate
     ```
 
 3. Install dependencies:
@@ -42,19 +40,13 @@ Simpleboilerplate is a base component for Joomla, serving as a starting point fo
     pnpm install
     ```
 
-4. Install Composer dependencies:
-
-    ```
-    composer install
-    ```
-
 ## Usage
 
 ### Development Mode
 
 To work in development mode and benefit from automatic reloading and copying the files to your Joomla installation:
 
--   install the component in Joomla (see Production Mode)
+-   install the module in Joomla (see Production Mode)
 -   configure the `webpack.config.js` file with the path to your Joomla installation (default is `../../joomla`)
 -   folder structure should look like this. You can change the names of the folders, important is only the structur itself.
 
@@ -62,7 +54,7 @@ To work in development mode and benefit from automatic reloading and copying the
 joomla_dev/
     - joomla/
     - joomla_components/
-        - com_simpleboilerplate/
+        - mod_boilerplate/
 ```
 
 -   start the development server:
@@ -73,32 +65,33 @@ pnpm run dev
 
 ### Production Mode
 
-To create a production-ready version of your component:
+To create a production-ready version of your module:
 
 ```
 pnpm run build
 ```
 
-This creates an optimized version of the component and packages it into a ZIP file for installation in Joomla.
+This creates an optimized version of the module and packages it into a ZIP file for installation in Joomla.
 
 ## Project Structure
 
--   `src/`: Component source code
-    -   `administrator/`: Administrator area of the component
-    -   `components/`: Site area of the component
+-   `src/`: Module source code
+    -   `src/`: Dispatcher and Helper Classes
+    -   `tmpl/`: Template files for the module
     -   `media/`: Assets such as JavaScript and CSS
+    -   `services`: Service Provider
+    -   `language`: Language files
 -   `dist/`: Compiled and optimized files (after build)
 -   `webpack.config.js`: Webpack configuration
 -   `tailwind.config.js`: Tailwind CSS configuration
--   `composer.json`: Composer configuration
 -   `package.json`: Project dependencies and scripts
 
 ## Customization
 
-You can customize the component by editing the files in the `src/` directory. The main customization points are:
+You can customize the module by editing the files in the `src/` directory. The main customization points are:
 
--   replace all occurences of `com_simpleboilerplate` with your component name, don't forget to change the name in the `package.json` file, the `webpack.config.js` file and the `composer.json` file too
--   replace all occurences of `Simpleboilerplate` and `boilerplate` with your component name
+-   replace all occurences of `mod_boilerplate` with your module name, don't forget to change the name in the `package.json` file, the `webpack.config.js` file
+-   replace all occurences of `boilerplate` with your module name
 
 ## Contributing
 
