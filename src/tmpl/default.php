@@ -13,7 +13,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 
 defined('_JEXEC') or die;
 
-$modId = 'mod-boilerplate' . $module->id;
+$modId = "mod-boilerplate {$module->id}";
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = Factory::getApplication()->getDocument()->getWebAssetManager();
