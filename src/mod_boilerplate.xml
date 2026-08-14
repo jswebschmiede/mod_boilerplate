@@ -17,8 +17,6 @@
         <folder module="mod_boilerplate">services</folder>
         <folder>src</folder>
         <folder>tmpl</folder>
-        <folder>language</folder>
-        <folder>media</folder>
     </files>
 
     <media destination="mod_boilerplate"
