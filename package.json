@@ -1,10 +1,11 @@
 {
-    "name": "com_simpleboilerplate",
+    "name": "mod_boilerplate",
     "version": "1.0.0",
     "description": "",
     "scripts": {
         "build": "webpack --mode production",
-        "dev": "webpack --mode development --watch"
+        "dev": "webpack --mode development --watch",
+        "rename": "node scripts/rename-module.js"
     },
     "keywords": [],
     "author": "",

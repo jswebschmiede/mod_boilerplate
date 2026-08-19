@@ -86,12 +86,16 @@ This creates an optimized version of the module and packages it into a ZIP file 
 - `postcss.config.js`: PostCSS configuration (Tailwind CSS 4 via `@tailwindcss/postcss`)
 - `package.json`: Project dependencies and scripts
 
-## Customization
+## Rename the module
 
-You can customize the module by editing the files in the `src/` directory. The main customization points are:
+Replace every `boilerplate` placeholder (namespaces, language keys, Webpack paths, package names) with your module slug. Hyphens become underscores (`acme-shop` → `acme_shop`). An optional `mod_` prefix is stripped (`mod_header` → `header`). The Joomla module name is always `mod_{slug}`.
 
-- replace all occurences of `mod_boilerplate` with your module name, don't forget to change the name in the `package.json` file, the `webpack.config.js` file
-- replace all occurences of `boilerplate` with your module name
+```
+pnpm rename -- header
+pnpm rename -- header --dry-run
+```
+
+Files such as `mod_boilerplate.xml` and `BoilerplateHelper.php` are renamed. The project folder is not renamed; rename `mod_boilerplate` to `mod_header` afterwards.
 
 ## Contributing
 
