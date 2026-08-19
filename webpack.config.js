@@ -157,6 +157,10 @@ module.exports = (env, argv) => {
                     test: /\.css$/,
                     use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
                 },
+                {
+                    test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                    type: 'asset/inline',
+                },
             ],
         },
         plugins: [
@@ -173,18 +177,18 @@ module.exports = (env, argv) => {
             }),
             ...(isProduction
                 ? [
-                      new ZipPlugin({
-                          path: path.resolve(__dirname, 'dist/zip'),
-                          filename: 'mod_boilerplate.zip',
-                          extension: 'zip',
-                          fileOptions: {
-                              mtime: new Date(),
-                              mode: 0o100664,
-                              compress: true,
-                              forceZip64Format: false,
-                          },
-                      }),
-                  ]
+                    new ZipPlugin({
+                        path: path.resolve(__dirname, 'dist/zip'),
+                        filename: 'mod_boilerplate.zip',
+                        extension: 'zip',
+                        fileOptions: {
+                            mtime: new Date(),
+                            mode: 0o100664,
+                            compress: true,
+                            forceZip64Format: false,
+                        },
+                    }),
+                ]
                 : []),
         ],
         optimization: {
