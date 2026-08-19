@@ -15,12 +15,11 @@ use Joomla\CMS\Extension\Service\Provider\HelperFactory;
 use Joomla\CMS\Extension\Service\Provider\ModuleDispatcherFactory;
 
 return new class () implements ServiceProviderInterface {
+    public function register(Container $container)
+    {
+        $container->registerServiceProvider(new ModuleDispatcherFactory('\\Joomla\\Module\\Boilerplate'));
+        $container->registerServiceProvider(new HelperFactory('\\Joomla\\Module\\Boilerplate\\Site\\Helper'));
 
-	public function register(Container $container)
-	{
-		$container->registerServiceProvider(new ModuleDispatcherFactory('\\Joomla\\Module\\Boilerplate'));
-		$container->registerServiceProvider(new HelperFactory('\\Joomla\\Module\\Boilerplate\\Site\\Helper'));
-
-		$container->registerServiceProvider(new Module());
-	}
+        $container->registerServiceProvider(new Module());
+    }
 };

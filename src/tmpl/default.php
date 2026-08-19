@@ -23,15 +23,15 @@ $wa->useStyle('module.boilerplate.site');
 ?>
 
 <div id="<?php echo $modId; ?>" class="mod-boilerplate boilerplate">
-	<?php echo $msg; ?>
+    <?php echo $msg; ?>
 
-	<?php if (!empty($items)): ?>
-		<div>
-			<?php foreach ($items as $item): ?>
-				<figure>
-					<?php echo HTMLHelper::image($item->itemboxImage, $item->itemboxTitle, ['class' => 'image']) ?>
-				</figure>
-			<?php endforeach; ?>
-		</div>
-	<?php endif; ?>
+    <?php if (!empty($items)) : ?>
+        <div>
+            <?php foreach ($items as $item) : ?>
+                <figure>
+                    <?php echo HTMLHelper::image($item->itemboxImage, $item->itemboxTitle, ['class' => 'image']) ?>
+                </figure>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 </div>

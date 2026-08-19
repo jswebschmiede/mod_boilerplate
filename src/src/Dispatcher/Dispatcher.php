@@ -17,19 +17,19 @@ use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
 
 class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareInterface
 {
-	use HelperFactoryAwareTrait;
+    use HelperFactoryAwareTrait;
 
-	protected function getLayoutData(): array
-	{
-		$params = new Registry($this->module->params);
-		$data = parent::getLayoutData();
+    protected function getLayoutData(): array
+    {
+        $params = new Registry($this->module->params);
+        $data = parent::getLayoutData();
 
-		/** @var \Joomla\Module\Boilerplate\Site\Helper\BoilerplateHelper $helper */
-		$helper = $this->getHelperFactory()->getHelper('BoilerplateHelper');
+        /** @var \Joomla\Module\Boilerplate\Site\Helper\BoilerplateHelper $helper */
+        $helper = $this->getHelperFactory()->getHelper('BoilerplateHelper');
 
-		$data['msg'] = $helper->getMsg($data['params'], $this->getApplication());
-		$data['items'] = $helper->getExampleItems($data['params'], $this->getApplication());
+        $data['msg'] = $helper->getMsg($data['params'], $this->getApplication());
+        $data['items'] = $helper->getExampleItems($data['params'], $this->getApplication());
 
-		return $data;
-	}
+        return $data;
+    }
 }
